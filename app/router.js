@@ -7,6 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('help');
+  this.route('news');
 });
 
 export default Router;
