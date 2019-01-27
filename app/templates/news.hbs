@@ -1,2 +1,6 @@
 <h1>News</h1>
 {{outlet}}
+
+{{#each model as |news|}}
+  {{news-details news=news}}
+{{/each}}

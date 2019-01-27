@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title pull-left">
+      <h3 class="panel-title">{{news.title}}</h3>
+    </div>
+    <div class="panel-title pull-right">
+      Comments <span class="badge">{{news.commentsCount}}</span>
+      <i>
+        {{news.createdOnDatetime}} ({{news.username}})
+      </i>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="panel-body">
+    {{{news.content}}}
+  </div>
+</div>
