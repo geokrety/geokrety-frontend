@@ -21,7 +21,24 @@ env:
 before_install:
   - npm config set spin false
 
-script:
-  - npm run lint:hbs
-  - npm run lint:js
-  - npm test
+jobs:
+  include:
+    - stage: test
+      script:
+        - npm run lint:hbs
+        - npm run lint:js
+        - npm test
+
+    - stage: deploy
+      script:
+        - npm run build -- -prod
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        github-token:
+            secure: hxAZDqpLZu1t25qmKVnZT474MR8wwI8bhBbMo0I0x19Z9rspnibiWkmNbVPTXw4pRu0YHS0Y25PnC670SDmY8EBmfN1A2MtEtd3nja8cCndKDnhLsq3ZdPJmCQ0GnOWtR8caUpNlQkIQ4Mwmdpy8s3uCF0YzswU5ZwMMKbY+VdICMz9Er/cHw7oqZxEB61Y60dbOFAMUmrdQbTbJi8zotnGzijnRMVEfh+7Ri54jQClVroV2vMUb6vz4IwOnck8hT2MfrfGfLc+gCoxkHwLFvrqP2XIbnltM0Wl4XSsZyFB91t8pZY02+rLzdGTDreWn06I0nxkAdB6S0jZ04FLgoOf3j/UdjwREDuhuVhMGoM6/Akx4ERAhGJXFVBy+3Og2BYgAk8Vw8pPhr885KqtYGTmMs5F+Xj4wDEc5qrJt2wM5+X3udGY+ZT/EpA7axeY2CKbci8hz2qcJ+WYV4oYYqsi47cnGgLg5fgD0hpXgG0WbJeNwEQIbsgpEzBElt3AX1zI9lcVB4YTlImF5RmZj6Tu10Jk12LQFTEtD6oIfVt+SCtsr4VmmVvlh7gejdHmY0qehXcrbZN8JAuHuTujt2h9RKD8FuzZIuQXp1PXAKB/mXwBPV7J3n7m0jR2RwIpD76KEcGPAfBNnyeiYI4Wo8QRrYY1M1SGHNnPMuHO6V1I=
+        keep-history: true
+        on:
+          tags: true
+        local-dir: dist
+        verbose: true
