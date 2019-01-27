@@ -6,7 +6,8 @@
     <div class="panel-title pull-right">
       Comments <span class="badge">{{news.commentsCount}}</span>
       <i>
-        {{news.createdOnDatetime}} ({{news.username}})
+        {{moment-format news.createdOnDatetime}}
+        ({{news.username}})
       </i>
     </div>
     <div class="clearfix"></div>
