@@ -21,6 +21,11 @@ env:
 before_install:
   - npm config set spin false
 
+stages:
+  - name: test
+  - name: deploy
+    if: tag IS present
+
 jobs:
   include:
     - stage: test
