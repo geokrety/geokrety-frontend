@@ -4,3 +4,15 @@
 {{#each model as |news|}}
   {{news-details news=news}}
 {{/each}}
+
+{{#if hasClickedLoadMore}}
+  {{infinity-loader infinityModel=model triggerOffset=400
+  loadingText="Loading..."
+  loadedText="No more news!"}}
+{{else}}
+  <div class="row">
+    <div class="col-xs-1 col-xs-offset-5">
+      {{#bs-button type="primary" onClick=(toggle "hasClickedLoadMore" this)}}Load more…{{/bs-button}}
+    </div>
+  </div>
+{{/if}}
