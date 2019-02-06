@@ -1,0 +1,12 @@
+
+<ol class="breadcrumb">
+  <li>{{#link-to "index"}}Home{{/link-to}}</li>
+  <li>{{#link-to "news"}}News{{/link-to}}</li>
+  <li class="active">{{model.title}}</li>
+</ol>
+
+{{news-details news=model}}
+
+{{#each model.comments as |comment|}}
+  {{news-comment-details news-comment=comment}}
+{{/each}}

@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title pull-left">
+      <h3 class="panel-title">
+        <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+        {{move.country}}
+        {{move.waypoint}}
+      </h3>
+      {{move.id}}
+    </div>
+    <div class="panel-title pull-right">
+      {{moment-format move.movedOnDatetime}} / {{move.author.name}} {{move.applicationName}}
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-1 col-md-1">
+        <div class="row">
+          <div class="col-sm-12 col-md-12">move_icon</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">{{move.distance}} km</div>
+        </div>
+      </div>
+      <div class="col-sm-11 col-md-11">
+        {{move.comment}}
+      </div>
+    </div>
+  </div>
+
+  <ul class="list-group">
+    {{#each move.comments as |comment|}}
+      {{move-comment comment=comment}}
+    {{/each}}
+  </ul>
+</div>

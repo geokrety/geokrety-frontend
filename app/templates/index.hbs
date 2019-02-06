@@ -1,10 +1,24 @@
-<h1>GeoKrety.org</h1>
+<ol class="breadcrumb">
+  <li class="active">Home</li>
+</ol>
+
 
 <div class="jumbotron">
-  <h2>Welcome here!</h2>
+  <h1>GeoKrety.org</h1>
   <p>
     This is a work in progress to build a new frontend for GeoKrety.org website.
   </p>
 </div>
+
+<h2>{{#link-to "news"}}News{{/link-to}}</h2>
+{{#each news as |news|}}
+  {{news-details news=news}}
+{{/each}}
+
+<h2>{{#link-to "geokrety"}}Latest GeoKrety{{/link-to}}</h2>
+
+{{#each geokrety as |geokret|}}
+  {{geokret-details geokret=geokret}}
+{{/each}}
 
 {{outlet}}

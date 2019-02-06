@@ -1,0 +1,18 @@
+<li class="list-group-item {% if comment.type_ == 1 %}list-group-item-danger{% endif %}">
+  <div class="pull-left">
+    ({{comment.id}})
+    {{comment.move.id}}
+    {{#if comment.type}}
+      <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+    {{else}}
+      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+    {{/if}}
+    {{comment.author.name}}({{comment.author.id}}):
+    {{comment.comment}}
+  </div>
+  <div class="pull-right">
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  </div>
+  <div class="clearfix"></div>
+</li>

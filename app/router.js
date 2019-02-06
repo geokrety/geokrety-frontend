@@ -8,7 +8,12 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('help');
-  this.route('news');
+  this.route('news', function() {
+    this.route('details', { path: '/:news_id' });
+  });
+  this.route('geokrety', function() {
+    this.route('details', { path: '/:geokret_id' });
+  });
 });
 
 export default Router;

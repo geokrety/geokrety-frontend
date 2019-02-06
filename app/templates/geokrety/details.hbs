@@ -1,0 +1,11 @@
+<ol class="breadcrumb">
+  <li>{{#link-to "index"}}Home{{/link-to}}</li>
+  <li>{{#link-to "geokrety"}}GeoKrety{{/link-to}}</li>
+  <li class="active">{{model.name}}</li>
+</ol>
+
+{{geokret-details geokret=model}}
+
+{{#each model.moves as |move|}}
+  {{move-details move=move}}
+{{/each}}
