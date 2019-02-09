@@ -1,3 +1,9 @@
+
+{{assert-must-preload model "moves"}}
+{{assert-must-preload model "moves.author"}}
+{{assert-must-preload model "moves.comments"}}
+{{assert-must-preload model "moves.comments.author"}}
+
 <ol class="breadcrumb">
   <li>{{#link-to "index"}}Home{{/link-to}}</li>
   <li>{{#link-to "geokrety"}}GeoKrety{{/link-to}}</li>

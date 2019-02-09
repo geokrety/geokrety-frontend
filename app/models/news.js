@@ -1,12 +1,9 @@
 import DS from 'ember-data';
-import {
-  htmlSafe
-} from '@ember/template';
-import {
-  computed
-} from '@ember/object';
+import { htmlSafe } from '@ember/template';
+import { computed } from '@ember/object';
+import LoadableModel from 'ember-data-storefront/mixins/loadable-model';
 
-export default DS.Model.extend({
+export default DS.Model.extend(LoadableModel, {
   title: DS.attr('string'),
   content: DS.attr('string'),
   username: DS.attr('string'),
@@ -14,8 +11,8 @@ export default DS.Model.extend({
   createdOnDatetime: DS.attr('date'),
   lastCommentDatetime: DS.attr('date'),
 
-  author: DS.belongsTo('user', {inverse: 'newsComments'}),
-  comments: DS.hasMany('news-comment', {inverse: 'news'}),
+  author: DS.belongsTo('user', {inverse: 'newsComments', async: false}),
+  comments: DS.hasMany('news-comment', {inverse: 'news', async: false}),
 
   contentSafe: computed('content', function() {
     return htmlSafe(`${this.content}`);

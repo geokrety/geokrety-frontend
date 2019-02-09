@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import LoadableModel from 'ember-data-storefront/mixins/loadable-model';
 
-export default DS.Model.extend({
+export default DS.Model.extend(LoadableModel, {
   name: DS.attr('string'),
   email: DS.attr('string'),
   language: DS.attr('string'),
@@ -18,10 +19,10 @@ export default DS.Model.extend({
   lastMailDatetime: DS.attr('date'),
   lastLoginDatetime: DS.attr('date'),
 
-  news: DS.hasMany('news', {inverse: 'author', async: true}),
-  newsComments: DS.hasMany('news-comment', {inverse: 'author', async: true}),
-  geokretyOwned: DS.hasMany('geokret', {inverse: 'owner', async: true}),
-  geokretyHeld: DS.hasMany('geokret', {inverse: 'holder', async: true}),
-  moves: DS.hasMany('move', {inverse: 'author', async: true}),
-  moveComments: DS.hasMany('move-comment'),
+  news: DS.hasMany('news', {inverse: 'author', async: false}),
+  newsComments: DS.hasMany('news-comment', {inverse: 'author', async: false}),
+  geokretyOwned: DS.hasMany('geokret', {inverse: 'owner', async: false}),
+  geokretyHeld: DS.hasMany('geokret', {inverse: 'holder', async: false}),
+  moves: DS.hasMany('move', {inverse: 'author', async: false}),
+  moveComments: DS.hasMany('move-comment', {inverse: 'author', async: false}),
 });

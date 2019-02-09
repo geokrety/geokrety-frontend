@@ -14,6 +14,9 @@ Router.map(function() {
   this.route('geokrety', function() {
     this.route('details', { path: '/:geokret_id' });
   });
+  this.route('users', function() {
+    this.route('details', { path: '/:user_id' });
+  });
 });
 
 export default Router;

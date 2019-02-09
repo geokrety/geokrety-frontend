@@ -1,11 +1,15 @@
 module.exports = {
+  globals: {
+    server: true,
+  },
   root: true,
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module'
   },
   plugins: [
-    'ember'
+    'ember',
+    'ember-data-sync-relationships'
   ],
   extends: [
     'eslint:recommended',
@@ -15,6 +19,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    "ember-data-sync-relationships/no-async-relationships": "error"
   },
   overrides: [
     // node files

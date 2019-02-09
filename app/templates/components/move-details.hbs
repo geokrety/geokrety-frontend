@@ -1,3 +1,4 @@
+
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="panel-title pull-left">
@@ -9,7 +10,7 @@
       {{move.id}}
     </div>
     <div class="panel-title pull-right">
-      {{moment-format move.movedOnDatetime}} / {{move.author.name}} {{move.applicationName}}
+      {{moment-format move.movedOnDatetime}} / {{link-to move.author.name "users.details" move.author.id}} {{move.applicationName}}
     </div>
     <div class="clearfix"></div>
   </div>

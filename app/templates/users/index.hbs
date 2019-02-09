@@ -1,17 +1,16 @@
-
 <ol class="breadcrumb">
   <li>{{#link-to "index"}}Home{{/link-to}}</li>
-  <li class="active">GeoKrety</li>
+  <li class="active">Users</li>
 </ol>
 
-{{#each model as |geokret|}}
-  {{geokret-details geokret=geokret}}
+{{#each model as |user|}}
+  {{user-details user=user}}
 {{/each}}
 
 {{#if hasClickedLoadMore}}
   {{infinity-loader infinityModel=model triggerOffset=400
   loadingText="Loading..."
-  loadedText="No more GeoKrety!"}}
+  loadedText="No more Users!"}}
 {{else}}
   <div class="row">
     <div class="col-xs-1 col-xs-offset-5">

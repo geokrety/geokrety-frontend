@@ -1,13 +1,12 @@
+
 <li class="list-group-item {% if comment.type_ == 1 %}list-group-item-danger{% endif %}">
   <div class="pull-left">
-    ({{comment.id}})
-    {{comment.move.id}}
     {{#if comment.type}}
       <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
     {{else}}
       <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
     {{/if}}
-    {{comment.author.name}}({{comment.author.id}}):
+    {{link-to comment.author.name "users.details" comment.author.id}}:
     {{comment.comment}}
   </div>
   <div class="pull-right">

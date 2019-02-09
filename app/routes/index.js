@@ -9,15 +9,20 @@ export default Route.extend({
       news: this.store.query('news', {
         sort: '-created_on_datetime',
         page: {
-          size: 2
+          size: 2,
+          number: 1
         },
       }),
-      geokrety: this.store.query('geokret', {
+      geokrety: this.store.loadAll('geokret', {
         sort: '-created_on_datetime',
         page: {
-          size: 2
+          size: 2,
+          number: 1
         },
+        // include: 'owner,holder,moves,moves.author,moves.comments,moves.comments.author'
+        include: 'owner,holder'
       }),
+
     });
   },
 

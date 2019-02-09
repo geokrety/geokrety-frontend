@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import LoadableModel from 'ember-data-storefront/mixins/loadable-model';
 
-export default DS.Model.extend({
+export default DS.Model.extend(LoadableModel, {
   name: DS.attr('string'),
   trackingCode: DS.attr('string'),
   description: DS.attr('string'),
@@ -12,7 +13,7 @@ export default DS.Model.extend({
   createdOnDatetime: DS.attr('date'),
   updatedOnDatetime: DS.attr('date'),
 
-  owner: DS.belongsTo('user', {inverse: 'geokretyOwned'}),
-  holder: DS.belongsTo('user', {inverse: 'geokretyHeld'}),
-  moves: DS.hasMany('move', {inverse: 'geokret'}),
+  owner: DS.belongsTo('user', {inverse: 'geokretyOwned', async: false}),
+  holder: DS.belongsTo('user', {inverse: 'geokretyHeld', async: false}),
+  moves: DS.hasMany('move', {inverse: 'geokret', async: false}),
 });

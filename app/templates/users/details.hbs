@@ -1,0 +1,9 @@
+<ol class="breadcrumb">
+  <li>{{#link-to "index"}}Home{{/link-to}}</li>
+  <li>{{#link-to "users"}}Users{{/link-to}}</li>
+  <li class="active">{{model.name}}</li>
+</ol>
+
+{{user-details user=model}}
+
+{{outlet}}

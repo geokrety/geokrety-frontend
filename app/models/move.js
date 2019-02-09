@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import LoadableModel from 'ember-data-storefront/mixins/loadable-model';
 
-export default DS.Model.extend({
+export default DS.Model.extend(LoadableModel, {
   trackingCode: DS.attr('string'),
   waypoint: DS.attr('string'),
   latitude: DS.attr('number'),
@@ -18,7 +19,7 @@ export default DS.Model.extend({
   movedOnDatetime: DS.attr('date'),
   updatedOnDatetime: DS.attr('date'),
 
-  author: DS.belongsTo('user', {inverse: 'moves'}),
-  geokret: DS.belongsTo('geokret', {inverse: 'moves'}),
-  comments: DS.hasMany('move-comment', {inverse: 'move', async: true}),
+  author: DS.belongsTo('user', {inverse: 'moves', async: false}),
+  geokret: DS.belongsTo('geokret', {inverse: 'moves', async: false}),
+  comments: DS.hasMany('move-comment', {inverse: 'move', async: false}),
 });
