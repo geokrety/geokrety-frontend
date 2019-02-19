@@ -12,8 +12,10 @@ export default DS.Model.extend(LoadableModel, {
   averageRating: DS.attr('number'),
   createdOnDatetime: DS.attr('date'),
   updatedOnDatetime: DS.attr('date'),
+  type: DS.attr('number'),
 
-  owner: DS.belongsTo('user', {inverse: 'geokretyOwned', async: false}),
-  holder: DS.belongsTo('user', {inverse: 'geokretyHeld', async: false}),
-  moves: DS.hasMany('move', {inverse: 'geokret', async: false}),
+  owner: DS.belongsTo('user', {inverse: 'geokretyOwned'}),
+  holder: DS.belongsTo('user', {inverse: 'geokretyHeld'}),
+  moves: DS.hasMany('move', {inverse: 'geokret'}),
+  // type: DS.belongsTo('geokrety-type', {inverse: 'geokrety'}),
 });

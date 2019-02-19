@@ -18,8 +18,9 @@ export default DS.Model.extend(LoadableModel, {
   createdOnDatetime: DS.attr('date'),
   movedOnDatetime: DS.attr('date'),
   updatedOnDatetime: DS.attr('date'),
+  type: DS.attr('number'),
 
-  author: DS.belongsTo('user', {inverse: 'moves', async: false}),
-  geokret: DS.belongsTo('geokret', {inverse: 'moves', async: false}),
-  comments: DS.hasMany('move-comment', {inverse: 'move', async: false}),
+  author: DS.belongsTo('user', {inverse: 'moves'}),
+  geokret: DS.belongsTo('geokret', {inverse: 'moves'}),
+  comments: DS.hasMany('move-comment', {inverse: 'move'}),
 });

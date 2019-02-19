@@ -1,0 +1,10 @@
+{{page-numbers content=geokrety action=(action "pageClicked")}}
+{{#if geokrety.loading}}
+  Loading
+  <br>
+{{else}}
+  {{#each geokrety as |geokret|}}
+    {{geokret-details geokret=geokret}}
+  {{/each}}
+{{/if}}
+{{page-numbers content=geokrety action=(action "pageClicked")}}

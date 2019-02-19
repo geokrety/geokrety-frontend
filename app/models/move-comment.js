@@ -7,6 +7,6 @@ export default DS.Model.extend(LoadableModel, {
   createdOnDatetime: DS.attr('date'),
   updatedOnDatetime: DS.attr('date'),
 
-  author: DS.belongsTo('user', {inverse: 'moveComments', async: false}),
-  move: DS.belongsTo('move', {inverse: 'comments', async: false}),
+  author: DS.belongsTo('user', {inverse: 'moveComments'}),
+  move: DS.belongsTo('move', {inverse: 'comments'}),
 });

@@ -1,7 +1,3 @@
-<ol class="breadcrumb">
-  <li>{{#link-to "index"}}Home{{/link-to}}</li>
-  <li class="active">Users</li>
-</ol>
 
 {{#each model as |user|}}
   {{user-details user=user}}
@@ -18,3 +14,5 @@
     </div>
   </div>
 {{/if}}
+
+{{outlet}}

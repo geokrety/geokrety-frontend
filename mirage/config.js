@@ -23,48 +23,49 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.4.x/shorthands/
   */
+  this.passthrough();
 
-  this.get('/users');
-  this.get('/users/:id');
-  this.get('/users/:id/moves', (schema, request) => {
-    let user = schema.users.find(request.params.id);
-    return user.moves;
-  });
-
-  this.get('/news');
-  this.get('/news/:id');
-  this.get('/news/:id/author', (schema, request) => {
-    let news = schema.news.find(request.params.id);
-    return news.author;
-  });
-
-  this.get('/geokrety', 'geokret');
-  this.get('/geokrety/:id', 'geokret');
-  this.get('/geokrety/:id/owner', (schema, request) => {
-    let geokret = schema.geokrety.find(request.params.id);
-    return geokret.owner;
-  });
-  this.get('/geokrety/:id/moves', (schema, request) => {
-    let geokret = schema.geokrety.find(request.params.id);
-    return geokret.moves;
-  });
-
-  this.get('/moves');
-  this.get('/moves/:id');
-  this.get('/moves/:id/author', (schema, request) => {
-    let move = schema.moves.find(request.params.id);
-    return move.author;
-  });
-  this.get('/moves/:id/comments', (schema, request) => {
-    let move = schema.moves.find(request.params.id);
-    return move.comments;
-  });
-
-  this.get('/moves-comments');
-  this.get('/moves-comments/:id');
-  this.get('/moves-comments/:id/author', (schema, request) => {
-    let moveComment = schema.moveComments.find(request.params.id);
-    return moveComment.author;
-  });
+  // this.get('/users');
+  // this.get('/users/:id');
+  // this.get('/users/:id/moves', (schema, request) => {
+  //   let user = schema.users.find(request.params.id);
+  //   return user.moves;
+  // });
+  //
+  // this.get('/news');
+  // this.get('/news/:id');
+  // this.get('/news/:id/author', (schema, request) => {
+  //   let news = schema.news.find(request.params.id);
+  //   return news.author;
+  // });
+  //
+  // this.get('/geokrety', 'geokret');
+  // this.get('/geokrety/:id', 'geokret');
+  // this.get('/geokrety/:id/owner', (schema, request) => {
+  //   let geokret = schema.geokrety.find(request.params.id);
+  //   return geokret.owner;
+  // });
+  // this.get('/geokrety/:id/moves', (schema, request) => {
+  //   let geokret = schema.geokrety.find(request.params.id);
+  //   return geokret.moves;
+  // });
+  //
+  // this.get('/moves');
+  // this.get('/moves/:id');
+  // this.get('/moves/:id/author', (schema, request) => {
+  //   let move = schema.moves.find(request.params.id);
+  //   return move.author;
+  // });
+  // this.get('/moves/:id/comments', (schema, request) => {
+  //   let move = schema.moves.find(request.params.id);
+  //   return move.comments;
+  // });
+  //
+  // this.get('/moves-comments');
+  // this.get('/moves-comments/:id');
+  // this.get('/moves-comments/:id/author', (schema, request) => {
+  //   let moveComment = schema.moveComments.find(request.params.id);
+  //   return moveComment.author;
+  // });
 
 }

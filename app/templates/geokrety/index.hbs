@@ -1,15 +1,9 @@
-
-<ol class="breadcrumb">
-  <li>{{#link-to "index"}}Home{{/link-to}}</li>
-  <li class="active">GeoKrety</li>
-</ol>
-
-{{#each model as |geokret|}}
+{{#each geokrety as |geokret|}}
   {{geokret-details geokret=geokret}}
 {{/each}}
 
 {{#if hasClickedLoadMore}}
-  {{infinity-loader infinityModel=model triggerOffset=400
+  {{infinity-loader infinityModel=geokrety triggerOffset=400
   loadingText="Loading..."
   loadedText="No more GeoKrety!"}}
 {{else}}

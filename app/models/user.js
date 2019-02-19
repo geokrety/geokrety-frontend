@@ -19,10 +19,10 @@ export default DS.Model.extend(LoadableModel, {
   lastMailDatetime: DS.attr('date'),
   lastLoginDatetime: DS.attr('date'),
 
-  news: DS.hasMany('news', {inverse: 'author', async: false}),
-  newsComments: DS.hasMany('news-comment', {inverse: 'author', async: false}),
-  geokretyOwned: DS.hasMany('geokret', {inverse: 'owner', async: false}),
-  geokretyHeld: DS.hasMany('geokret', {inverse: 'holder', async: false}),
-  moves: DS.hasMany('move', {inverse: 'author', async: false}),
-  moveComments: DS.hasMany('move-comment', {inverse: 'author', async: false}),
+  news: DS.hasMany('news', {inverse: 'author'}),
+  newsComments: DS.hasMany('news-comment', {inverse: 'author'}),
+  geokretyOwned: DS.hasMany('geokret', {inverse: 'owner'}),
+  geokretyHeld: DS.hasMany('geokret', {inverse: 'holder'}),
+  moves: DS.hasMany('move', {inverse: 'author'}),
+  moveComments: DS.hasMany('move-comment', {inverse: 'author'}),
 });

@@ -6,7 +6,8 @@
     {{yield}}
   </div>
   <ul class="list-group">
-    <li class="list-group-item"><i class="glyphicon glyphicon-triangle-right"></i>GeoKrety owned</li>
+    <li class="list-group-item"><i class="glyphicon glyphicon-triangle-right"></i>{{link-to "GeoKrety owned" "users.details.geokrety.owned" user.id}}</li>
+    <li class="list-group-item"><i class="glyphicon glyphicon-triangle-right"></i>{{link-to "GeoKrety held" "users.details.geokrety.held" user.id}}</li>
     <li class="list-group-item"><i class="glyphicon glyphicon-triangle-right"></i>GeoKrety moved</li>
     <li class="list-group-item"><i class="glyphicon glyphicon-triangle-right"></i>My moves</li>
     <li class="list-group-item"><i class="glyphicon glyphicon-triangle-right"></i>My moves comments</li>

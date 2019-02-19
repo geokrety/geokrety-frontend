@@ -1,11 +1,9 @@
-{{assert-must-preload geokret "owner"}}
-{{assert-must-preload geokret "holder"}}
 
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="panel-title pull-left">
       <h3 class="panel-title">
-        {{#link-to "geokrety.details" geokret}}{{geokret.name}}{{/link-to}}
+        {{#link-to "geokrety.details" geokret.id}}{{geokret.name}}{{/link-to}}
         -
         geokret.type.name
         -

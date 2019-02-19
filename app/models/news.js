@@ -11,8 +11,8 @@ export default DS.Model.extend(LoadableModel, {
   createdOnDatetime: DS.attr('date'),
   lastCommentDatetime: DS.attr('date'),
 
-  author: DS.belongsTo('user', {inverse: 'newsComments', async: false}),
-  comments: DS.hasMany('news-comment', {inverse: 'news', async: false}),
+  author: DS.belongsTo('user', {inverse: 'newsComments'}),
+  comments: DS.hasMany('news-comment', {inverse: 'news'}),
 
   contentSafe: computed('content', function() {
     return htmlSafe(`${this.content}`);
