@@ -7,8 +7,13 @@ export default Route.extend(RouteMixin, {
     page: {},
     size: {}
   },
-  breadCrumb: {
-    title: 'GeoKrety Held'
+
+  init() {
+    this._super(...arguments);
+
+    this.breadCrumb = this.breadCrumb || {
+      title: "GeoKrety Held"
+    };
   },
 
   model(params) {

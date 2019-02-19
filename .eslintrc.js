@@ -9,7 +9,7 @@ module.exports = {
   },
   plugins: [
     'ember',
-    'ember-data-sync-relationships'
+    // 'ember-data-sync-relationships'
   ],
   extends: [
     'eslint:recommended',
@@ -19,7 +19,7 @@ module.exports = {
     browser: true
   },
   rules: {
-    "ember-data-sync-relationships/no-async-relationships": "error"
+    // "ember-data-sync-relationships/no-async-relationships": "error"
   },
   overrides: [
     // node files

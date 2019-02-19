@@ -1,9 +1,12 @@
 import Route from '@ember/routing/route';
 import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import RSVP from 'rsvp';
+import {
+  computed
+} from '@ember/object';
 
 export default Route.extend(RouteMixin, {
-  breadCrumb: Ember.computed('controller.geokret.name', {
+  breadCrumb: computed('controller.geokret.name', {
     get() {
       return {
         title: this.get('controller.geokret.name')
