@@ -1,9 +1,21 @@
+<header>
+  <p class="logo"><a href="/">Geo<span class="black">Krety</span>.org</a></p>
+  <p class="subline">Open source item tracking for all caching platforms</p>
+  <span class="bg"></span>
+  <img class="sun" src="/images/header/sun.svg">
+</header>
+
+<div class="container">
+  {{bread-crumbs tagName="ol" outputStyle="bootstrap" linkable=true}}
+  {{outlet}}
+</div>
+
 {{#bs-navbar class="navbar-inverse navbar-fixed-top" as |navbar|}}
 
   <div class="navbar-header">
     {{navbar.toggle}}
     {{#link-to "index" }}
-      <a class="navbar-brand" href="#">GeoKrety JSONAPI prototype</a>
+      <a class="navbar-brand" href="#">GeoKrety.org</a>
     {{/link-to}}
   </div>
 
@@ -14,6 +26,9 @@
       {{/nav.item}}
       {{#nav.item}}
         {{#nav.link-to "news"}}News{{/nav.link-to}}
+      {{/nav.item}}
+      {{#nav.item}}
+        {{#nav.link-to "register-geokret-move"}}Register a move{{/nav.link-to}}
       {{/nav.item}}
 
       {{#nav.dropdown as |dd|}}
@@ -32,6 +47,8 @@
           {{#ddm.item}}{{#ddm.link-to "geokrety.details" 46464}}GeoKret 46464{{/ddm.link-to}}{{/ddm.item}}
           {{#ddm.item}}{{#ddm.link-to "geokrety.details" 41935}}GeoKret 41935{{/ddm.link-to}}{{/ddm.item}}
           {{#ddm.item}}{{#ddm.link-to "geokrety.details" 52217}}GeoKret 52217{{/ddm.link-to}}{{/ddm.item}}
+          {{#ddm.item}}{{#ddm.link-to "geokrety.details" 71467}}GeoKret 71467{{/ddm.link-to}}{{/ddm.item}}
+          {{#ddm.item}}{{#ddm.link-to "geokrety.details" 71267}}GeoKret with no move{{/ddm.link-to}}{{/ddm.item}}
         {{/dd.menu}}
       {{/nav.dropdown}}
 
@@ -45,24 +62,23 @@
       {{/nav.dropdown}}
 
       {{#nav.item}}
+        {{#nav.link-to "search"}}Search{{/nav.link-to}}
+      {{/nav.item}}
+
+      {{#nav.item}}
         {{#nav.link-to "help"}}Help{{/nav.link-to}}
       {{/nav.item}}
+
     {{/navbar.nav}}
     {{#navbar.nav class="navbar-right" as |nav|}}
       {{#nav.item}}
-        {{#bs-form class="navbar-form" as |form|}}
-          {{#form.group validation=firstNameValidation}}
+        {{#bs-form as |form|}}
+          {{#form.group}}
             <input type="text" class="form-control" placeholder="Search...">
+            {{yield}}
           {{/form.group}}
         {{/bs-form}}
       {{/nav.item}}
     {{/navbar.nav}}
   {{/navbar.content}}
 {{/bs-navbar}}
-
-<div class="container">
-  <div class="row">
-    {{bread-crumbs tagName="ol" outputStyle="bootstrap" linkable=true}}
-    {{outlet}}
-  </div>
-</div>

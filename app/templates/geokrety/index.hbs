@@ -1,15 +1,11 @@
-{{#each geokrety as |geokret|}}
-  {{geokret-details geokret=geokret}}
-{{/each}}
-
-{{#if hasClickedLoadMore}}
-  {{infinity-loader infinityModel=geokrety triggerOffset=400
-  loadingText="Loading..."
-  loadedText="No more GeoKrety!"}}
-{{else}}
-  <div class="row">
-    <div class="col-xs-1 col-xs-offset-5">
-      {{#bs-button type="primary" onClick=(toggle "hasClickedLoadMore" this)}}Load more…{{/bs-button}}
-    </div>
-  </div>
+{{#if (gt geokrety.totalPages 1)}}
+  {{page-numbers content=geokrety showFL=true}}
+{{/if}}
+<div class={{if moves.loading "blur"}}>
+  {{#each geokrety as |geokret|}}
+    {{geokret-details geokret=geokret}}
+  {{/each}}
+</div>
+{{#if (gt geokrety.totalPages 1)}}
+  {{page-numbers content=geokrety showFL=true}}
 {{/if}}

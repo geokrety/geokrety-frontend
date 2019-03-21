@@ -1,5 +1,4 @@
-
-<div class="panel panel-default">
+<div class="panel panel-default geokret-details">
   <div class="panel-heading">
     <div class="panel-title pull-left">
       <h3 class="panel-title">
@@ -18,15 +17,26 @@
     <div class="clearfix"></div>
   </div>
   <div class="panel-body">
-    <dl>
-      <dt>Tracking Code:</dt>
-      <dd>{{geokret.trackingCode}}</dd>
-      <dt>Created on datetime:</dt>
-      <dd>{{moment-format geokret.createdOnDatetime}}</dd>
-      <dt>Description:</dt>
-      <dd>{{geokret.description}}</dd>
-      <dt>Holder:</dt>
-      <dd>{{geokret.holder.name}}</dd>
-    </dl>
+    <div class="row">
+      <div class="col-md-10">
+        <dl>
+          <dt>Tracking Code:</dt>
+          <dd>{{geokret.trackingCode}}</dd>
+          <dt>Created on datetime:</dt>
+          <dd>{{moment-format geokret.createdOnDatetime}}</dd>
+          <dt>Description:</dt>
+          <dd>{{geokret.description}}</dd>
+          <dt>Holder:</dt>
+          <dd>{{geokret.holder.name}}</dd>
+        </dl>
+      </div>
+      <div class="col-md-2">
+        <div class="btn-group-vertical btn-block btn-group-lg" role="group" aria-label="...">
+          <button type="button" class="btn btn-default">Grabb it</button>
+          <button type="button" class="btn btn-default">Post a note</button>
+          <button type="button" class="btn btn-default">…</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

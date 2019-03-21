@@ -1,13 +1,12 @@
-
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="panel-title pull-left">
       <h3 class="panel-title">
-        <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-        {{move.country}}
-        {{move.waypoint}}
+        {{#if move.country}}
+          {{country-flag country=move.country}}
+        {{/if}}
+        {{waypoint-link waypoint=move.waypoint coordinates=move.coordinates}}
       </h3>
-      {{move.id}} - {{move.geokret.id}}
     </div>
     <div class="panel-title pull-right">
       {{moment-format move.movedOnDatetime}} / {{link-to move.author.name "users.details" move.author.id}} {{move.applicationName}}
@@ -20,9 +19,11 @@
         <div class="row">
           <div class="col-sm-12 col-md-12">{{move-type-icon move=move}}</div>
         </div>
-        <div class="row">
-          <div class="col-sm-12 col-md-12">{{move.distance}} km</div>
-        </div>
+        {{#if move.distance}}
+          <div class="row">
+            <div class="col-sm-12 col-md-12">{{move.distance}} km</div>
+          </div>
+        {{/if}}
       </div>
       <div class="col-sm-11 col-md-11">
         {{move.comment}}

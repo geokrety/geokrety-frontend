@@ -1,0 +1,16 @@
+{{#form.element
+  form=form
+  controlType="text"
+  label="Tracking code"
+  property="trackingCode"
+  value=trackingCode
+  placeholder="______"
+  pattern="[A-Za-z0-9]{6}"
+  maxlength="6"
+  size="lg"
+  showValidationOn=showValidationOn
+  helpText="6 characters from GeoKret label, eg. XF3ACS. Do not use the code starting with 'GK' here."
+  as |el|
+}}
+  {{el.control class="largeInputText"}}
+{{/form.element}}

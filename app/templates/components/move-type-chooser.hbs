@@ -1,0 +1,15 @@
+<div class="logtypes float-right">
+  {{#form.element
+    controlType="radio"
+    options=(array 0 1 3 5 2)
+    property="type"
+    value=type
+    as |el|
+  }}
+    {{#el.control value=type inline=true as |option|}}
+      <div class="{{get moveTypeIcons option}} box">
+        <span>{{get moveTypeLabels option}}</span>
+      </div>
+    {{/el.control}}
+  {{/form.element}}
+</div>

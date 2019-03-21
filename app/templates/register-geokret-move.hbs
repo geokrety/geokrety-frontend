@@ -1,0 +1,112 @@
+<h2>Move a GeoKret</h2>
+
+{{#bs-form model=move novalidation=true as |form|}}
+
+  {{#step-manager currentStep=currentStep as |w|}}
+    <ul id="progress_circles">
+      {{#each w.steps as |step|}}
+        <li aria-pressed={{step.isActive}} {{action w.transition-to step}}></li>
+      {{/each}}
+    </ul>
+
+    {{#w.step name="identification"}}
+      {{tracking-code-chooser
+        form=form
+        model=move
+        trackingCode=trackingCode
+      }}
+      {{bs-button
+        defaultText="Select from my inventory"
+      }}
+    {{/w.step}}
+
+    {{#w.step name="move-type"}}
+      {{move-type-chooser
+        form=form
+        type=type
+      }}
+    {{/w.step}}
+
+    {{#w.step name="position"}}
+      {{waypoint-chooser
+        form=form
+        model=move
+        waypoint=waypoint
+        latitude=latitude
+        longitude=longitude
+      }}
+    {{/w.step}}
+
+    {{#w.step name="date"}}
+    {{#if (not move.validations.attrs.movedOnDatetime.isValid)}}
+      <div class="alert alert-danger" role="alert">
+        {{move.validations.attrs.movedOnDatetime.message}}
+      </div>
+    {{/if}}
+
+      <p>
+        When was this move effective?
+      </p>
+
+      {{date-time-chooser
+        action=(action "updateDatetime")
+        date=move.movedOnDatetime
+        minDate=move.geokret.createdOnDatetime
+      }}
+    {{/w.step}}
+
+    {{#w.step name="message"}}
+      <div class="row">
+        <div class="col-md-12">
+          {{form.element controlType="textarea"
+            label="Message"
+            placeholder="Type here your nice message"
+            required=false
+            property="comment"
+            rows=5
+          }}
+        </div>
+      </div>
+    {{/w.step}}
+
+    {{#w.step name="preview"}}
+      <h3>Move preview</h3>
+
+      {{#if (and move.geokret (v-get move "trackingCode" "isValid"))}}
+        {{geokret-details geokret=move.geokret}}
+      {{/if}}
+      {{move-details move=move}}
+    {{/w.step}}
+
+    <div class="row top-buffer">
+      <div class="col-xs-6">
+        {{#bs-button
+          icon="glyphicon glyphicon-chevron-left"
+          block=true
+          size="lg"
+          onClick=(action w.transition-to-previous)
+          disabled=(not w.hasPreviousStep)
+        }}
+          Back
+        {{/bs-button}}
+      </div>
+
+      <div class="col-xs-6">
+        {{#bs-button
+          type="primary"
+          icon="glyphicon glyphicon-chevron-right"
+          block=true
+          size="lg"
+          onClick=(validate-transition w.transition-to-next with=(action "validateStep" w.currentStep))
+          disabled=(or (not w.hasNextStep) (not isValid))
+        }}
+          Next ({{isValid}})
+        {{/bs-button}}
+
+      </div>
+    </div>
+  {{/step-manager}}
+
+{{/bs-form}}
+
+{{outlet}}

@@ -1,0 +1,16 @@
+{{input
+  value=search
+  class="light"
+  placeholder="Search…"
+}}
+
+{{#if geokrety.length}}
+  {{page-numbers content=geokrety showFL=true}}
+  <div class={{if geokrety.loading "blur"}}>
+    {{#each geokrety as |geokret|}}
+      {{geokret-details geokret=geokret}}
+    {{/each}}
+  </div>
+  {{page-numbers content=geokrety showFL=true}}
+{{/if}}
+{{outlet}}

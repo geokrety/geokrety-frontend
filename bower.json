@@ -1,0 +1,6 @@
+{
+  "name": "geokrety-frontend",
+  "dependencies": {
+    "flag-icon-css": "^3.3.0"
+  }
+}

@@ -8,6 +8,9 @@ module.exports = function(environment) {
     locationType: 'auto',
     // locationType: 'router-scroll',
     // historySupportMiddleware: true,
+    // routerScroll: {
+    //   delayScrollTop: true
+    // },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -24,6 +27,8 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      application: require('../package.json').application,
+      version: require('../package.json').version,
     }
   };
 

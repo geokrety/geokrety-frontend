@@ -1,0 +1,121 @@
+header {
+  width: 100%;
+  background: #2ab2c2;
+  overflow: hidden;
+  height: 220px;
+  margin-top: 50px;
+  position: relative;
+  display: block;
+}
+
+header .subline {
+  color: #fff;
+  z-index: 4;
+  position: relative;
+  text-shadow: -1px 1px rgba(0,0,0,.5);
+  font-size: 18px;
+  display: block;
+  background: rgba(0,0,0,.4);
+  padding: 1px 20px;
+  width: 485px;
+  margin: 136px auto 0;
+}
+
+header .logo {
+  font-family: Righteous,cursive;
+  top: 53px;
+  text-transform: uppercase;
+  z-index: 3;
+  margin-left: -195px;
+  font-size: 55px;
+  text-shadow: -3px 4px 0 rgba(0,0,0,.4);
+}
+
+header .logo .black {
+  background-color: #000;
+}
+
+header .logo a {
+  text-decoration: none;
+  color: #fff;
+}
+
+header .bg {
+  background-image: url("/images/header/bg.svg");
+  width: 900px;
+  background-size: 77%;
+  background-repeat: no-repeat;
+  height: 190px;
+  display: block;
+  background-position: center;
+  top: 45px;
+  margin-left: -450px;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+header .bg,
+header .logo {
+  left: 50%;
+  position: absolute;
+}
+
+header .sun {
+  width: 38px;
+  margin: 0 auto;
+  left: 51.5%;
+  top: 4px;
+  animation: 20s linear infinite rotating;
+  -webkit-animation: 20s linear infinite rotating;
+  -moz-animation: 20s linear infinite rotating;
+  -ms-animation: 20s linear infinite rotating;
+}
+
+header .blimp,
+header .sun {
+  z-index: 2;
+  position: absolute;
+}
+
+.sun {
+  animation: 20s linear infinite rotating;
+  -webkit-animation: 20s linear infinite rotating;
+  -moz-animation: 20s linear infinite rotating;
+  -ms-animation: 20s linear infinite rotating;
+}
+@keyframes rotating {
+  from {
+    transform: rotateZ(0);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotating {
+  from {
+    transform: rotateZ(0);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes rotating {
+  from {
+    transform: rotateZ(0);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@-ms-keyframes rotating {
+  from {
+    transform: rotateZ(0);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}

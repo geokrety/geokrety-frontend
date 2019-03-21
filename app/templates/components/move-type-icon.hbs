@@ -1,1 +1,5 @@
-<img src="https://cdn.geokrety.org/images/log-icons/{{move.geokret.type}}/{{move.type}}.png" alt="move type icon" title="Move ID: {{move.id}}">
+{{#if move.type}}
+  <img src="https://cdn.geokrety.org/images/log-icons/{{if move.geokret.type move.geokret.type "0"}}/{{move.type}}.png" alt="move type icon" title="{{if move.id "Move ID: `move.id`"}}">
+{{else}}
+  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+{{/if}}

@@ -1,0 +1,42 @@
+@import "ember-bootstrap/bootstrap";
+@import "header.scss"; // @import "node_modules/flag-icon-css/sass/flag-icon.scss";
+@import "flags.scss";
+@import "image-placeholder.scss";
+@import "geokret-move.scss";
+@import "geokret-move-tracking-code.scss";
+/* Move down content because we have a fixed navbar that is 50px tall */
+.container {
+  // padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+.infinity-loader {
+  background-color: wheat;
+}
+
+.blur {
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+
+.leaflet-container {
+  height: 400px;
+}
+
+.geokret-details {
+  min-height: 220px;
+}

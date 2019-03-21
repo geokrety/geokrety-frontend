@@ -16,7 +16,7 @@ export default Route.extend(RouteMixin, {
         page: "page[number]",
         perPage: "page[size]",
       },
-      // include: "owner,holder",
+      include: "owner,holder",
       sort: "-created_on_datetime",
       filter: JSON.stringify([{
         name: "moves__author__id",

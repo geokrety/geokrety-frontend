@@ -4,19 +4,12 @@ import {
 } from '@ember/object/computed';
 
 export default Controller.extend({
-  // // queryParams: ["page", "size"],
-  // queryParams: ["page"],
-  // page: "1",
-  // size: "1",
+  queryParams: ["page", "size"],
+  page: alias('model.geokrety.page'),
+  model: {
+    geokrety: {}
+  },
+  size: "20",
 
   geokrety: alias("model.geokrety"),
-  // moves: alias("model.moves"),
-
-  // actions: {
-  //   pageClicked(page) {
-  //     this.setProperties({
-  //       page: page
-  //     });
-  //   }
-  // }
 });

@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-6">
+    {{form.element
+      form=form
+      controlType="text"
+      label="Waypoint"
+      size="lg"
+      showValidationOn=showValidationOn
+      property="waypoint"
+      value=waypoint
+      required=false
+      helpText="eg.: GC1AQ2N, OP069B, OC033A…"
+    }}
+
+    {{#if (and waypoint (eq (v-get model "waypoint" "message") "We don't know this waypoint yet."))}}
+
+      <p>
+        This waypoint is not known in our database.
+        {{#if isGC}}
+          It may be caused by using Geocaching™ waypoints which no GeoKrety users
+          already used.
+        {{else if isOpenCaching}}
+          OpenCaching waypoint are synchronized once a day.
+          If this cache is recent, it may not have been synchronized yet.
+        {{else}}
+          This waypoint system seems unknown to us. Please double check the filled waypoint.
+          If you think it an error, please send us a message.
+        {{/if}}
+        <b>Please fill the cache coordinates input below, so it'll be known by our system.</b>
+        Copy paste will be your friend ;)
+      </p>
+
+      {{form.element controlType="text"
+        label="Coordinates"
+        size="lg"
+        showValidationOn=showValidationOn
+        property="coordinatesStr"
+        value=coordinates
+        required=true
+        helpText="52.1534 21.0539 - N 52° 09.204 E 021° 03.234 - N 52° 9' 12.2400\" E 21° 3' 14.0400"
+      }}
+    {{/if}}
+  </div>
+
+  {{#if (or (not isMobile.any) coordinates)}}
+    <div class="col-xs-12 col-md-6">
+      {{#leaflet-map
+        bounds=bounds
+        dragging=(not isMobile.any)
+      }}
+        {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="© OpenStreetMap contributors"}}
+        {{#if (and latitude longitude) }}
+          {{marker-layer location=(array latitude longitude)}}
+        {{/if}}
+      {{/leaflet-map}}
+    </div>
+  {{/if}}
+</div>

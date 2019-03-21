@@ -1,18 +1,28 @@
 import Route from '@ember/routing/route';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import RSVP from 'rsvp';
 
-export default Route.extend({
+export default Route.extend(RouteMixin, {
 
-  async model() {
+  queryParams: {
+    page: {},
+    size: {},
+  },
+
+  model(params) {
+    const geokretyParams = this.set('geokretyParams', {
+      page: params.page,
+      perPage: params.size,
+      paramMapping: {
+        page: "page[number]",
+        perPage: "page[size]",
+      },
+      include: 'owner,holder',
+      sort: '-created_on_datetime',
+    });
+
     return RSVP.hash({
-      geokrety: this.get('store').loadAll('geokret', {
-        sort: '-created_on_datetime',
-        include: 'owner,holder',
-        page: {
-          size: 2,
-          number: 1
-        },
-      }),
+      geokrety: this.findPaged('geokret', geokretyParams),
     });
   }
 

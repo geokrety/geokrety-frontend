@@ -1,15 +1,53 @@
-{{geokret-details geokret=geokret}}
+<h2>Details</h2>
 
-{{link-to "1" "geokrety.details" "52217" (query-params page="1")}}
-{{link-to "2" "geokrety.details" "52217" (query-params page="2")}}
-{{link-to "3" "geokrety.details" "52217" (query-params page="3")}}
-{{page-numbers content=moves action=(action "pageClicked")}}
-{{#if moves.loading}}
-  Loading
-  <br>
-{{else}}
+<div class="row">
+  <div class="col-md-10">
+    {{geokret-details geokret=geokret}}
+  </div>
+  <div class="col-md-2">
+    <div class="panel panel-default geokret-details">
+      <div class="panel-body">
+        <div class="img-placeholder-dash"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Map</h2>
+{{#leaflet-map bounds=bounds
+  fitBoundsOptions=(hash
+    padding=(point 40 40)
+  )
+  dragging=(not isMobile.any) as |layers|}}
+  {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="© OpenStreetMap contributors"}}
+
   {{#each moves as |move|}}
-    {{move-details move=move}}
+    {{#if move.latitude}}
+      {{#marker-layer location=(array move.latitude move.longitude)}}
+        {{#popup-layer}}
+          {{move-map-popup move=move}}
+        {{/popup-layer}}
+      {{/marker-layer}}
+    {{/if}}
   {{/each}}
+
+  {{layers.polyline locations=markers weight=3 color="red"}}
+{{/leaflet-map}}
+
+<h2>Moves</h2>
+
+{{#if moves}}
+  {{#if (gt moves.totalPages 1)}}
+    {{page-numbers content=moves showFL=true}}
+  {{/if}}
+  <div class={{if moves.loading "blur"}}>
+    {{#each moves as |move|}}
+      {{move-details move=move}}
+    {{/each}}
+  </div>
+  {{#if (gt moves.totalPages 1)}}
+    {{page-numbers content=moves showFL=true}}
+  {{/if}}
+{{else}}
+  <div class="alert alert-info" role="alert">This GeoKret has not yet started it's journey. Found it? Log it!</div>
 {{/if}}
-{{page-numbers content=moves action=(action "pageClicked")}}
